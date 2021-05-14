@@ -122,7 +122,7 @@ router.post('/login', (req, res, next) => {
 
 
 // LOGOUT
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
     req.session.destroy();  
     res.redirect('/');
 });
@@ -133,7 +133,6 @@ router.get('/private', (req, res) => {
     const user = req.session.currentUser
     if(!user){
         res.redirect("/login")
-        return
     }
     res.render('private', {userInSession: req.session.currentUser})
 })

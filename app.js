@@ -37,12 +37,8 @@ app.use(cookieParser());
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
-
-// MIDDLEWARE DE SESIÓN
 app.use(function(req, res, next){
-  res.locals.currentUser = req.session.currentUser; // {username: "Ejemplo"}
-  res.locals.saludo = "Hola mudno" // String
-  
+  res.locals.currentUser = req.session.currentUser;
   next();
 });
 

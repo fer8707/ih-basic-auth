@@ -4,15 +4,6 @@ const router = express.Router();
 
 
 /* GET home page */
-router.get('/', (req, res) => {
-  let data;
-  if(res.locals.currentUser){
-    data = "Hay un usuario conectado"
-  } else{
-    data = "No hay un usuario"
-  }
-  res.render('index', { title: data }
-  )
-});
+router.get('/', (req, res) => res.render('index', { title: 'App created with Ironhack generator 🚀' }));
 
 module.exports = router;
